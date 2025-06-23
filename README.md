@@ -1,20 +1,10 @@
-<?php
+ The name of Entity or fully qualified model class name that the new form will be bound to (empty for none):
+ > App\Entity\Product
 
-namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+                                                                                                                        
+ [ERROR] Entity "App\Entity\Product" doesn't exist; please enter an existing one or create a new one.                   
+                                                                                                                        
 
-final class ProductController extends AbstractController
-{
-    #[Route('/product', name: 'app_product')]
-    public function index(): Response
-    {
-        return $this->render('product/index.html.twig', [
-            'controller_name' => 'ProductController',
-        ]);
-    }
-}
-
-dit staat er in de controller wat moet ik doen om er voor te zorgen dat ik een product pagina heb
+ The name of Entity or fully qualified model class name that the new form will be bound to (empty for none):
+ >
