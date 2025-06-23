@@ -1,8 +1,31 @@
-Unexpected end of template in nav.html.twig at line 44.
-Twig\Error\
-SyntaxError
-Show exception properties
-in C:\xampp\htdocs\sd23-p08-symfony-eindtoets-b2l-NorbuBustinduyMarin\templates\nav.html.twig (line 44)
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ path('app_register') }}">                        Registreren                    </a>                </li>                <li class="nav-item mx-0 mx-lg-1">                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ path('app_login') }}">                        Inloggen                    </a>                </li>
+use App\Entity\Product;
+use App\Form\ProductType;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
-                waarom krijg ik deze error help mijjj!
+#[Route('/product', name: 'app_product_')]
+class ProductController extends AbstractController
+{
+    #[Route('/new', name: 'new')]
+    public function new(Request $request, EntityManagerInterface $em): Response
+    {
+        $product = new Product(); // 🆕 leeg product-object
+
+        $form = $this->createForm(ProductType::class, $product); // 🔧 koppel formulier aan dit object
+        $form->handleRequest($request); // 📥 kijk of er POST-data is
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($product);  // ⏳ opslaan klaarzetten
+            $em->flush();            // ✅ echt opslaan in database
+
+            $this->addFlash('success', 'Product toegevoegd!');
+            return $this->redirectToRoute('app_product_index'); // 🔁 terug naar lijst
+        }
+
+        return $this->render('product/new.html.twig', [ // 🖼️ formulier tonen
+            'form' => $form->createView(),
+        ]);
+    }
+}
