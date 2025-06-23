@@ -1,39 +1,29 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="School website van de Heppie Kemper :-)">
-    <meta name="author" content="Heppie Kemper">
-    <title>{% block title %}Heppie Kemper!{% endblock %}</title>
-    {#    Loading the javascript files/ CDN#}
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    {# Loading the link/ CSS files and the favicon  #}
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    {% block stylesheets %}
-    {% endblock %}
-    {% block javascripts %}
-        {% block importmap %}{{ importmap('app') }}{% endblock %}
-    {% endblock %}
-</head>
-<body id="page-top">
-    {% include('nav.html.twig') %}
-    <header class="masthead bg-primary text-white text-center">
-        <div class="container-fluid">
-            {%  for label, messages in app.flashes %}
-                {%  for msg in messages %}
-                    <div class="alert alert-{{ label }}" role="alert">
-                        {{ msg }}
-                    </div>
-                {%  endfor %}
-            {%  endfor %}
-            {% block body %}{% endblock %}
+<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="/">Heppie Kemper</a>
+        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ path('app_school_group_show') }}">
+                        Klassen overzicht
+                    </a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ path('app_student') }}">
+                        Studenten overzicht
+                    </a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ path('app_vacation') }}">
+                        Vakantie overzicht
+                    </a>
+                </li>
+            </ul>
         </div>
-    </header>
-</body>
-</html>
+    </div>
+</nav>
+dit staat er al in kan je nu de register pagina en inlogpagina en de product pagina erin zetten 
