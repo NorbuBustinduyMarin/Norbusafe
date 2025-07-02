@@ -1,7 +1,18 @@
-<a href="{{ path('app_show_album', {'id': album.id}) }}">Toon</a>
-<a href="{{ path('app_album_edit', {'id': album.id}) }}">Wijzig</a>
+{% extends 'base.html.twig' %}
 
-<form method="post" action="{{ path('app_album_delete', {'id': album.id}) }}" onsubmit="return confirm('Weet je zeker?');" style="display:inline;">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ album.id) }}">
-    <button>Verwijder</button>
-</form>
+{% block title %}Wijzig Album{% endblock %}
+
+{% block body %}
+    <h1>Wijzig Album</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.naam) }}
+        {{ form_row(form.jaar) }}
+        {{ form_row(form.artiest) }}
+        {{ form_row(form.genre) }}
+
+        <button class="btn btn-success">Opslaan</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('app_album') }}" class="btn btn-secondary mt-3">⬅ Terug naar overzicht</a>
+{% endblock %}
