@@ -1,6 +1,8 @@
-Cannot resolve argument $request of "App\Controller\AlbumController::edit()": Cannot determine controller argument for "App\Controller\AlbumController::edit()": the $request argument is type-hinted with the non-existent class or interface: "App\Controller\Request". Did you forget to add a use statement?
-Symfony\Component\DependencyInjection\Exception\
-RuntimeException
-in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\symfony\dependency-injection\Container.php (line 397)
-    {        if ('service_container' === $id) {            return $this;        }        if (\is_string($load)) {            throw new RuntimeException($load);        }        if (null === $method) {            return false !== $registry ? $this->{$registry}[$id] ?? null : null;        }        if (false !== $registry) {
-    waarom krijg ik deze error help mij alsjeblieft
+Could not load type "App\Controller\AlbumType": class does not exist.
+Symfony\Component\Form\Exception\
+InvalidArgumentException
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\symfony\form\FormRegistry.php (line 72)
+            }            if (!$type) {                // Support fully-qualified class names                if (!class_exists($name)) {                    throw new InvalidArgumentException(sprintf('Could not load type "%s": class does not exist.', $name));                }                if (!is_subclass_of($name, FormTypeInterface::class)) {                    throw new InvalidArgumentException(sprintf('Could not load type "%s": class does not implement "Symfony\Component\Form\FormTypeInterface".', $name));                }
+
+
+            di is de volgende melding die ik krijg
