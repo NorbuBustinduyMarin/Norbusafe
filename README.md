@@ -1,11 +1,43 @@
-use App\Repository\ProductRepository;
+Case mismatch between loaded and declared class names: "App\Entity\genre" vs "App\Entity\Genre".
+RuntimeException
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\symfony\error-handler\DebugClassLoader.php (line 331)
+                return;            }            $name = $refl->getName();            if ($name !== $class && 0 === strcasecmp($name, $class)) {                throw new \RuntimeException(sprintf('Case mismatch between loaded and declared class names: "%s" vs "%s".', $class, $name));            }            $deprecations = $this->checkAnnotations($refl, $name);            foreach ($deprecations as $message) {
+DebugClassLoader->checkClass('App\\Entity\\genre', 'C:\\xampp\\htdocs\\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\\vendor\\composer/../../src\\Entity\\genre.php')
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\symfony\error-handler\DebugClassLoader.php (line 307)
+DebugClassLoader->loadClass('App\\Entity\\genre')
+class_exists('App\\Entity\\genre')
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\doctrine\orm\src\Mapping\ClassMetadataInfo.php (line 1219)
+ClassMetadataInfo->validateAssociations()
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\doctrine\orm\src\Mapping\ClassMetadataFactory.php (line 285)
+ClassMetadataFactory->validateRuntimeMetadata(object(ClassMetadata), null)
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\doctrine\orm\src\Mapping\ClassMetadataFactory.php (line 264)
+ClassMetadataFactory->doLoadMetadata(object(ClassMetadata), null, false, array())
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\doctrine\doctrine-bundle\Mapping\ClassMetadataFactory.php (line 18)
+ClassMetadataFactory->doLoadMetadata(object(ClassMetadata), null, false, array())
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\doctrine\persistence\src\Persistence\Mapping\AbstractClassMetadataFactory.php (line 343)
+AbstractClassMetadataFactory->loadMetadata('App\\Entity\\Album')
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\doctrine\persistence\src\Persistence\Mapping\AbstractClassMetadataFactory.php (line 207)
+AbstractClassMetadataFactory->getMetadataFor('App\\Entity\\Album')
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\doctrine\orm\src\EntityManager.php (line 318)
+EntityManager->getClassMetadata('App\\Entity\\Album')
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\doctrine\doctrine-bundle\Repository\ContainerRepositoryFactory.php (line 49)
+ContainerRepositoryFactory->doGetRepository(object(EntityManagerGhostEbeb667), 'App\\Entity\\Album', false)
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\doctrine\doctrine-bundle\Repository\RepositoryFactoryCompatibility.php (line 38)
+ContainerRepositoryFactory->getRepository(object(EntityManagerGhostEbeb667), 'App\\Entity\\Album')
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\doctrine\orm\src\EntityManager.php (line 831)
+EntityManager->getRepository('App\\Entity\\Album')
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\src\Controller\AlbumController.php (line 16)
+AlbumController->index(object(EntityManagerGhostEbeb667))
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\symfony\http-kernel\HttpKernel.php (line 181)
+HttpKernel->handleRaw(object(Request), 1)
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\symfony\http-kernel\HttpKernel.php (line 76)
+HttpKernel->handle(object(Request), 1, true)
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\symfony\http-kernel\Kernel.php (line 197)
+Kernel->handle(object(Request))
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\symfony\runtime\Runner\Symfony\HttpKernelRunner.php (line 35)
+HttpKernelRunner->run()
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\vendor\autoload_runtime.php (line 29)
+require_once('C:\\xampp\\htdocs\\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\\vendor\\autoload_runtime.php')
+in C:\xampp\htdocs\sd23-p07-symfony-herkanstoets-b2-NorbuBustinduyMarin\public\index.php (line 5)
 
-#[Route('/product', name: 'app_product')]
-public function index(ProductRepository $productRepository): Response
-{
-    $products = $productRepository->findAll();
-
-    return $this->render('product/index.html.twig', [
-        'products' => $products,
-    ]);
-}
+waarom krijg ik deze error en wat moet k doen
